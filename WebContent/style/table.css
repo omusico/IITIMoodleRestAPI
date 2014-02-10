@@ -1,0 +1,30 @@
+root { 
+    display: block;
+}
+thead{
+    background-color:#FFF9FF;
+    font-size: 80%;
+}
+tbody{
+    font-size: 80%;
+}
+#main td{
+    border-bottom: 1px dashed #999999;
+ }
+
+tbody tr{
+	background-color:#FFF9FF;
+}
+
+.tablelist {
+    allign: left;	
+}
+.tablelist thead tr{
+    font-weight: bold;	
+}
+.tablelist tr{
+  border: solid #e9e9e9;
+  border-width: 1px 0 0 0;
+  padding: .5em;
+  line-height: 1.4em;
+}

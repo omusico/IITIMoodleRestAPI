@@ -1,0 +1,38 @@
+Software engineering course
+
+[
+    {
+        "id": 3,
+        "username": "harshit",
+        "firstname": "Harshit ",
+        "lastname": "Ag",
+        "fullname": "Harshit  Ag",
+        "email": "harshit@iiti.ac.in",
+        "department": "",
+        "interests": "I like to build distributed applications. I am ama",
+        "firstaccess": 1387361111,
+        "lastaccess": 1389309901,
+        "description": "",
+        "descriptionformat": 1,
+        "city": "Faridabad",
+        "country": "IN",
+        "profileimageurlsmall": "http://localhost/testmoodle/pluginfile.php/22/user/icon/f2",
+        "profileimageurl": "http://localhost/testmoodle/pluginfile.php/22/user/icon/f1",
+        "groups": [],
+        "roles": [
+            {
+                "roleid": 5,
+                "name": "",
+                "shortname": "student",
+                "sortorder": 0
+            }
+        ],
+        "enrolledcourses": [
+            {
+                "id": 2,
+                "fullname": "Software Engineering",
+                "shortname": "SW Engineering"
+            }
+        ]
+    }
+]

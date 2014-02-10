@@ -1,0 +1,156 @@
+[
+    {
+        "id": 1,
+        "name": "General",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": [
+            {
+                "id": 1,
+                "url": "http://localhost/testmoodle/mod/forum/view.php?id=1",
+                "name": "News forum",
+                "visible": 1,
+                "modicon": "http://localhost/testmoodle/theme/image.php/standard/forum/1386276885/icon",
+                "modname": "forum",
+                "modplural": "Forums",
+                "availablefrom": 0,
+                "availableuntil": 0,
+                "indent": 0
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "19 December - 25 December",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    },
+    {
+        "id": 3,
+        "name": "26 December - 1 January",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    },
+    {
+        "id": 4,
+        "name": "2 January - 8 January",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    },
+    {
+        "id": 5,
+        "name": "9 January - 15 January",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": [
+            {
+                "id": 2,
+                "url": "http://localhost/testmoodle/mod/resource/view.php?id=2",
+                "name": "Fourth year 2014-Spring-Sem-Time Table-wef3Jan2014",
+                "visible": 1,
+                "modicon": "http://localhost/testmoodle/theme/image.php/standard/core/1386276885/f/pdf-24",
+                "modname": "resource",
+                "modplural": "Files",
+                "availablefrom": 0,
+                "availableuntil": 0,
+                "indent": 0,
+                "contents": [
+                    {
+                        "type": "file",
+                        "filename": "Fourth year 2014-Spring-Sem-Time_Table-wef3Jan2014.pdf",
+                        "filepath": "/",
+                        "filesize": 198062,
+                        "fileurl": "http://localhost/testmoodle/webservice/pluginfile.php/34/mod_resource/content/0/Fourth%20year%202014-Spring-Sem-Time_Table-wef3Jan2014.pdf?forcedownload=1",
+                        "timecreated": 1389556600,
+                        "timemodified": 1389556600,
+                        "sortorder": 1,
+                        "userid": 2,
+                        "author": null,
+                        "license": "allrightsreserved"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "url": "http://localhost/testmoodle/mod/assign/view.php?id=3",
+                "name": "Assignment 1",
+                "description": "<div class=\"no-overflow\"><p>Understanding of basic transport layer protocols</p></div>",
+                "visible": 1,
+                "modicon": "http://localhost/testmoodle/theme/image.php/standard/assign/1386276885/icon",
+                "modname": "assign",
+                "modplural": "Assignments",
+                "availablefrom": 0,
+                "availableuntil": 0,
+                "indent": 0
+            },
+            {
+                "id": 4,
+                "url": "http://localhost/testmoodle/mod/choice/view.php?id=4",
+                "name": "Decision regarding quiz vs assignment",
+                "visible": 1,
+                "modicon": "http://localhost/testmoodle/theme/image.php/standard/choice/1386276885/icon",
+                "modname": "choice",
+                "modplural": "Choices",
+                "availablefrom": 0,
+                "availableuntil": 0,
+                "indent": 0
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "16 January - 22 January",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    },
+    {
+        "id": 7,
+        "name": "23 January - 29 January",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    },
+    {
+        "id": 8,
+        "name": "30 January - 5 February",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    },
+    {
+        "id": 9,
+        "name": "6 February - 12 February",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    },
+    {
+        "id": 10,
+        "name": "13 February - 19 February",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    },
+    {
+        "id": 11,
+        "name": "20 February - 26 February",
+        "visible": 1,
+        "summary": "",
+        "summaryformat": 1,
+        "modules": []
+    }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Miscellaneous",
+        "idnumber": null,
+        "description": "",
+        "descriptionformat": 1,
+        "parent": 0,
+        "sortorder": 10000,
+        "coursecount": 0,
+        "visible": 1,
+        "visibleold": 1,
+        "timemodified": 1386276376,
+        "depth": 1,
+        "path": "/1",
+        "theme": null
+    },
+    {
+        "id": 2,
+        "name": "Computer Science",
+        "idnumber": "CSE",
+        "description": "<p>This includes the courses taught in Computer Science.</p>",
+        "descriptionformat": 1,
+        "parent": 0,
+        "sortorder": 20000,
+        "coursecount": 1,
+        "visible": 1,
+        "visibleold": 1,
+        "timemodified": 1387314074,
+        "depth": 1,
+        "path": "/2",
+        "theme": null
+    },
+    {
+        "id": 3,
+        "name": "Electical Engineering",
+        "idnumber": "EE",
+        "description": "<p>This includes courses in Electrical Engineering.</p>",
+        "descriptionformat": 1,
+        "parent": 0,
+        "sortorder": 30000,
+        "coursecount": 1,
+        "visible": 1,
+        "visibleold": 1,
+        "timemodified": 1387314460,
+        "depth": 1,
+        "path": "/3",
+        "theme": null
+    }
+]

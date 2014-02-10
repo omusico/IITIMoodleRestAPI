@@ -1,0 +1,72 @@
+<div id="apidocs-tab" class="g-unit tablelist" >
+<!-- add css, align, border -->
+<table>
+<thead>
+	<tr>
+		<td>Endpoint</td>
+		<td>Method</td>
+		<td>Input Params</td>
+		<td>Response Type</td>
+		<td>Response</td>
+	</tr>
+</thead> 
+<tbody>
+	<tr>
+		<td>/login</td>
+		<td>POST</td>
+		<td>username, password</td>
+		<td>JsonObject</td>
+		<td>Auth Token</td>
+	</tr>
+    <tr>
+		<td>/users/me</td>
+		<td>GET</td>
+		<td>Auth Token</td>
+		<td>JsonObject</td>
+		<td>Personal details of requesting in user</td>
+	</tr>
+	<tr>
+		<td>/users/{userID}</td>
+		<td>GET</td>
+		<td>Auth Token</td>
+		<td>JsonObject</td>
+		<td>User details with given userid</td>
+	</tr>
+	<tr>
+		<td>/categories</td>
+		<td>GET</td>
+		<td>Auth Token</td>
+		<td>JsonArray</td>
+		<td>List of all Course Categories</td>
+	</tr>
+	<tr>
+		<td>/courses</td>
+		<td>GET</td>
+		<td>Auth Token</td>
+		<td>JsonArray</td>
+		<td>List of all published courses</td>
+	</tr>
+	<tr>
+		<td>/courses/{courseId}/contents</td>
+		<td>GET</td>
+		<td>Auth Token</td>
+		<td>JsonArray</td>
+		<td>List of all course contents with given courseId</td>
+	</tr>
+	<tr>
+		<td>/courses/{courseId}/participants</td>
+		<td>GET</td>
+		<td>Auth Token</td>
+		<td>JsonArray</td>
+		<td>List of all participants registered with given courseId</td>
+	</tr>
+	<tr>
+		<td>/courses/{courseId}/forums</td>
+		<td>GET</td>
+		<td>Auth Token</td>
+		<td>JsonArray</td>
+		<td>List of all forums pertaining to course with given courseId</td>
+	</tr>
+	</tbody>
+</table>
+</div>

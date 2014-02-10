@@ -1,0 +1,119 @@
+[
+    {
+        "id": 1,
+        "shortname": "iitiMoodle",
+        "categoryid": 0,
+        "categorysortorder": 1,
+        "fullname": "IITI Moodle",
+        "idnumber": "",
+        "summary": "",
+        "summaryformat": 1,
+        "format": "site",
+        "showgrades": 1,
+        "newsitems": 3,
+        "startdate": 0,
+        "numsections": 1,
+        "maxbytes": 0,
+        "showreports": 0,
+        "visible": 1,
+        "groupmode": 0,
+        "groupmodeforce": 0,
+        "defaultgroupingid": 0,
+        "timecreated": 1386276375,
+        "timemodified": 1386279271,
+        "enablecompletion": 0,
+        "completionnotify": 0,
+        "lang": "",
+        "forcetheme": "",
+        "courseformatoptions": [
+            {
+                "name": "numsections",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "shortname": "SW Engineering",
+        "categoryid": 2,
+        "categorysortorder": 20001,
+        "fullname": "Software Engineering",
+        "idnumber": "cs208",
+        "summary": "<p>Teach how to build long lasting software.</p>",
+        "summaryformat": 1,
+        "format": "weeks",
+        "showgrades": 1,
+        "newsitems": 5,
+        "startdate": 1387391400,
+        "numsections": 10,
+        "maxbytes": 0,
+        "showreports": 0,
+        "visible": 1,
+        "hiddensections": 0,
+        "groupmode": 0,
+        "groupmodeforce": 0,
+        "defaultgroupingid": 0,
+        "timecreated": 1387360333,
+        "timemodified": 1387360333,
+        "enablecompletion": 0,
+        "completionnotify": 0,
+        "lang": "",
+        "forcetheme": "",
+        "courseformatoptions": [
+            {
+                "name": "numsections",
+                "value": 10
+            },
+            {
+                "name": "hiddensections",
+                "value": 0
+            },
+            {
+                "name": "coursedisplay",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "shortname": "BEE",
+        "categoryid": 3,
+        "categorysortorder": 30001,
+        "fullname": "Basic electrical engineering",
+        "idnumber": "bee21",
+        "summary": "<p>asdfsdfgfgh</p>",
+        "summaryformat": 1,
+        "format": "weeks",
+        "showgrades": 1,
+        "newsitems": 5,
+        "startdate": 1389637800,
+        "numsections": 10,
+        "maxbytes": 0,
+        "showreports": 0,
+        "visible": 1,
+        "hiddensections": 0,
+        "groupmode": 0,
+        "groupmodeforce": 0,
+        "defaultgroupingid": 0,
+        "timecreated": 1389552164,
+        "timemodified": 1389552164,
+        "enablecompletion": 0,
+        "completionnotify": 0,
+        "lang": "",
+        "forcetheme": "",
+        "courseformatoptions": [
+            {
+                "name": "numsections",
+                "value": 10
+            },
+            {
+                "name": "hiddensections",
+                "value": 0
+            },
+            {
+                "name": "coursedisplay",
+                "value": 0
+            }
+        ]
+    }
+]

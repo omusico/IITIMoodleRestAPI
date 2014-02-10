@@ -1,0 +1,41 @@
+package in.ac.iiti.moodlerestapi.util;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
+
+public class PropertyHandler {
+     
+	 private Properties configProperties = new Properties();
+	
+	 public PropertyHandler() {
+		 FileInputStream in = new FileInputStream(System.getProperty("config.properties"));
+		try {
+	        configProperties.load(new FileInputStream("config.properties"));
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	    //set default values
+	    configProperties.setProperty("moodleServerUrl","http://127.0.0.1/testmoodle");
+	    configProperties.setProperty("acadPostGreServerUrl","jdbc:postgresql://127.0.0.1:5432/");
+	    configProperties.setProperty("acadPostGreServerUsername","postgres");
+	    configProperties.setProperty("acadPostGreServerPassword","harshit");
+	 }
+	 public void updateProperties(HashMap<String,String> properties){
+		 Iterator<?> iterator = properties.entrySet().iterator();
+			while (iterator.hasNext()) {
+				Map.Entry mapEntry = (Map.Entry) iterator.next();
+				configProperties.setProperty((String)mapEntry.getKey(), (String)mapEntry.getValue()); //TODO if this updates
+			}
+	 }
+	 
+	 public Properties getConfigProperties(){
+		 return configProperties;
+	 }
+	
+	
+}

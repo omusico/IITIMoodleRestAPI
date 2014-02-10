@@ -1,0 +1,74 @@
+.forms {
+  border: 1px solid #0000CC;
+  border-right-width: 0px;
+  margin-top: 20px;
+}
+.forms dl {
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+.forms dt, 
+.forms dd {
+  border: solid #e9e9e9;
+  border-width: 1px 0 0 0;
+  padding: .5em;
+  line-height: 1.4em;
+}
+.forms dt {
+  margin: 0;
+  float: left;
+  clear: left;
+  width: 20em;
+  text-align: right;
+}
+.forms dd {
+  margin: 0 0 0 7.5em;
+  padding: auto auto auto 0; 
+}
+.forms form {
+  margin: 0;
+  padding: 0;
+}
+.forms fieldset {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+.forms legend {
+  padding: .4em;
+  font-size: 125%;
+  font-weight: bold;
+}
+.forms dt label {
+  color: #333;
+}
+.forms input, 
+.forms select {
+  color: #555;
+}
+.forms p {
+  margin: 0;
+  border: solid #e9e9e9;
+  border-width: 1px 0;
+  border-bottom: 1px solid #ccc;
+  padding: .5em .5em .5em 7.5em;
+  background: #f9f9f9;
+}
+/*
+#basic-profile-form p input {
+  font-size: 110%;
+  font-weight: bold;
+} */
+
+/* error field container */
+.forms dd.error-c { /* note that you need the specificity */
+  border: 1px solid red; 
+}
+
+/* error message next to the field */
+.forms .error-msg {
+  color: red;
+  margin: 0 0 0 1em;
+  font-size: .9em;
+}

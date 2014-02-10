@@ -1,0 +1,47 @@
+Users by id --jsonArray
+
+[
+    {
+        "id": 2,
+        "username": "teacher1cse",
+        "firstname": "Teacher1CSE",
+        "lastname": "one",
+        "fullname": "Teacher1CSE one",
+        "email": "harshit4003@gmail.com",
+        "department": "",
+        "firstaccess": 1386276874,
+        "lastaccess": 1389552164,
+        "description": "",
+        "descriptionformat": 1,
+        "city": "Faridabad",
+        "country": "IN",
+        "profileimageurlsmall": "http://localhost/testmoodle/pluginfile.php/5/user/icon/f2",
+        "profileimageurl": "http://localhost/testmoodle/pluginfile.php/5/user/icon/f1",
+        "preferences": [
+            {
+                "name": "email_bounce_count",
+                "value": "1"
+            },
+            {
+                "name": "email_send_count",
+                "value": "1"
+            },
+            {
+                "name": "userselector_autoselectunique",
+                "value": "0"
+            },
+            {
+                "name": "userselector_preserveselected",
+                "value": "0"
+            },
+            {
+                "name": "userselector_searchanywhere",
+                "value": "0"
+            },
+            {
+                "name": "_lastloaded",
+                "value": 1389554986
+            }
+        ]
+    }
+]

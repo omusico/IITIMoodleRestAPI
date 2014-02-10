@@ -1,0 +1,6 @@
+1. Always check the "show problems" view for errors. (Build errors or others)
+
+Issues.. 
+
+1. Jars dependencies
+2. Heterogeneous systems (software schemas).
