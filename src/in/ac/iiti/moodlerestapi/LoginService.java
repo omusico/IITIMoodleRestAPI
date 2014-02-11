@@ -22,21 +22,26 @@ public class LoginService
   @Produces(MediaType.APPLICATION_JSON)
   public JsonObject getToken(@FormParam(value = "username") String username,
 		                     @FormParam(value = "password") String password)
-  {
+  throws java.net.ConnectException{
 	   
        String moodleServerUrl =propertyInstance.getProperty("moodleServerUrl");
        System.out.println("moodleServerUtl is : "+ moodleServerUrl);
        String moodleWebServiceShortname = "alanturing"; //TODO put it at a central location
        
-       JsonObject response = ClientBuilder.newClient()
-                                    .target(moodleServerUrl)
+       
+       JsonObject response = null; 
+       try{
+           response = ClientBuilder.newClient()
+        		                    .target(moodleServerUrl)
     		                        .path("/login/token.php")
     		                        .queryParam("username", username)
     		                        .queryParam("password", password)
     		                        .queryParam("service", moodleWebServiceShortname)
     		                        .request()
     		                        .get(JsonObject.class);
-       
+       }catch(javax.ws.rs.ProcessingException e){
+    	   throw new java.net.ConnectException();
+       }
        return response;
   }
   

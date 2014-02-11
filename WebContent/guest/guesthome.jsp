@@ -11,17 +11,20 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 		init();
+		$("#login").click();
 		});
     </script>
   </head>
   
   <%
-     String errMessage=(String)session.getAttribute("error");
+     String errMessage=(String)session.getAttribute("loginError");
+     if(errMessage!=null){
+    	 session.removeAttribute("loginError");
+     }
      // if application is loaded for the first time
      if(application.getAttribute("firstLoad")==null){
     	 response.sendRedirect("./admin/configure.jsp");
      }
-     
   %>
   <body>
   
@@ -31,12 +34,12 @@
         <!-- HEADER STARTS -->
         <div id ="header">
 		        <div id="toprightlogo">
-		   	        <div id="headerleft"><h2>IITI Moodle Rest API</h2></div>
+		   	        <div id="headerleft"><h3>Admin & Dev Portal (IITI Moodle ReST API) </h3></div>
 		   	        <div id="headerright"><img  src ="logo1.gif" alt="Not Available" width="300px" height="60px"></div>
 		   	        <div style="clear:both;"></div>
 		          </div>
 		      </div>
-		            <div id="menubar" class="nav">
+		 <div id="menubar" class="nav">
 			      <ul>
 				  <li>
 				      <a id="home" class="tab" href="#home">Home</a>  
@@ -55,10 +58,9 @@
 				  </li>
 				</ul>
        </div>
-       <!-- HEADER END -->
+         <!-- HEADER END -->
        
-       <div id="content">
-       
+        <div id="content">
           <div id="main">
            <%@ include file="../default.html" %>
            <%@ include file="../apidocs.html" %>
@@ -67,11 +69,11 @@
             <h2>You must be signed in as administrator</h2>
            </div>
 		    
-	    <%@ include file="../aboutus.html" %>
+	        <%@ include file="../aboutus.html" %>
 		   
             <!-- Login tab STARTS-->
-             <div id="login-tab" class="g-unit forms" >
-            <form action="./adminlogin" method="post">
+            <div id="login-tab" class="g-unit" >
+            <form action="./adminlogin" method="post" class="forms">
               <fieldset>
                 <legend>Admin Login</legend>
                 <dl>
@@ -91,7 +93,7 @@
                 if(errMessage !=null){
                 //if(true){
                 %>
-                Error: <%= errMessage%>
+                 <%= errMessage%>
                 <% }
                 %>
                 </p>

@@ -28,7 +28,7 @@
                <!-- HEADER STARTS -->
         <div id ="header">
 		        <div id="toprightlogo">
-		   	        <div id="headerleft"><h2>IITI Moodle Rest API</h2></div>
+		   	        <div id="headerleft"><h3>Admin & Dev Portal (IITI Moodle ReST API) </h3></div>
 		   	        <div id="headerright"><img  src ="../logo1.gif"  " alt="Not Available" width="300px" height="60px"></div>
 		   	        <div style="clear:both;"></div>
 		          </div>
@@ -57,7 +57,7 @@
        
        <div id="content">
           <div id="main">
-           <%@ include file="../default.html" %>
+           <%@ include file="../default1.html" %>
            <%@ include file="../apidocs.html" %>
            <div id="admin-tab" class="g-unit">
            
