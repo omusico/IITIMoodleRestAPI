@@ -1,16 +1,19 @@
 package in.ac.iiti.moodlerestapi.util;
 import java.sql.*;
+import java.util.Properties;
 /**
  *
  * @author harshit
  */
 public class MySqlDBConnector {
-    // attributes to be removed later
-    static String url = "jdbc:mysql://localhost:3306/";
-    static String dbName = "moodledb";
-    static String driver = "com.mysql.jdbc.Driver";
-    static String userName = "root"; 
-    static String password = "harshit";
+	
+	static String driver = "com.mysql.jdbc.Driver";
+	private static Properties  propertyInstance = AppConfigProperty.getPropertyInstance();
+    
+	private static String url = propertyInstance.getProperty("moodleMySqlUrl","jdbc:mysql://localhost:3306/");
+	private static String dbName = propertyInstance.getProperty("moodleDbName","moodledb");
+	private static String userName = propertyInstance.getProperty("moodleMySqlUsername","root"); 
+	private static String password = propertyInstance.getProperty("moodleMySqlPassword","harshit");
     
     public synchronized static Connection getConnection() {
         Connection con = null;

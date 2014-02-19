@@ -14,22 +14,26 @@ public class AppConfigProperty{
 	 private static AppConfigProperty configInstance = new AppConfigProperty(); 
 	 
 	 private static Properties propertyInstance;
-	 
+	 private static Properties emailInstance;
 	 private AppConfigProperty() {
 		super();
 		try {
 			propertyInstance = new Properties();
 	        propertyInstance.load(this.getClass().getClassLoader().getResourceAsStream("config.properties"));
+	        emailInstance = new Properties();
+	        emailInstance.load(this.getClass().getClassLoader().getResourceAsStream("email.properties"));
 	        System.out.println("in appConfig constructor");
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	        System.out.println("file could not be loaded");
 	    }
-		
 	 }
 	 
 	 public static Properties getPropertyInstance(){
 		 return AppConfigProperty.propertyInstance;
+	 }
+	 public static Properties getEmailInstance(){
+		 return AppConfigProperty.emailInstance;
 	 }
 	 public static AppConfigProperty getAppConfigPropertyInstance(){
 		 return configInstance;
@@ -44,5 +48,4 @@ public class AppConfigProperty{
 		    }
 	       System.out.println("new val "+ propertyInstance.getProperty("moodleServerUrl"));
      }
-		
 }

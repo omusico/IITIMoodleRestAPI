@@ -154,9 +154,37 @@
 	                    <label for="acadDbName" >Academic Database Name</label> 
 	                </dt>
 	                <dd>
-	                     <input type="password" name="acadDbName" value="<%=propertyInstance.getProperty("acadDbName") %>" />
+	                     <input type="text" name="acadDbName" value="<%=propertyInstance.getProperty("acadDbName") %>" />
+	                </dd>
+	                  <!-- mysql moodle server data -->
+	                <dt>
+	                    <label for="moodleMySqlUrl" > Moodle MySql Url</label> 
+	                </dt>
+	                <dd>
+	                     <input type="text" name="moodleMySqlUrl" value="<%=propertyInstance.getProperty("moodleMySqlUrl") %>" />
 	                </dd>
 	                
+	                <dt>
+	                    <label for="moodleMySqlUsername" >Moodle MySql UserName </label> 
+	                </dt>
+	                <dd>
+	                     <input type="text" name="moodleMySqlUsername" value="<%=propertyInstance.getProperty("moodleMySqlUsername") %>" />
+	                </dd>
+	                
+	                <dt>
+	                    <label for="moodleMySqlPassword" >Academic Server Password</label> 
+	                </dt>
+	                <dd>
+	                     <input type="password" name="moodleMySqlPassword" value="<%=propertyInstance.getProperty("moodleMySqlPassword") %>" />
+	                </dd>
+	                
+	                <dt>
+	                    <label for="moodleDbName" >Moodle Database Name</label> 
+	                </dt>
+	                <dd>
+	                     <input type="text" name="moodleDbName" value="<%=propertyInstance.getProperty("moodleDbName") %>" />
+	                </dd>
+	                           
 	            </dl>
 	              <p><input type="submit" value="Set Properties"></p>
              </fieldset>
