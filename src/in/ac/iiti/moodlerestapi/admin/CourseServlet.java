@@ -16,6 +16,7 @@ import java.util.HashMap;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonValue;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,12 +43,10 @@ public class CourseServlet extends HttpServlet {
 		//validate the admin
 		String role = (String) session.getAttribute("role");
 		if(role==null || !role.equalsIgnoreCase("admin")){
-			return; //TODO
+			return;//TODO
 		}
 		
-		HashMap<String, Course> acadCourseInfo = null;
-		CourseHandler courseHandler = new CourseHandler();
-		
+		//retrieve the input parameters
         int semester = Integer.parseInt(request.getParameter("semester")); // 1- jan to may, 2 - july to december
         int year = Integer.parseInt(request.getParameter("year")); 
         String departmentCode = request.getParameter("department");
@@ -75,7 +74,9 @@ public class CourseServlet extends HttpServlet {
 		}  
         //evaluate timestamp for moodle
         
-         
+                 
+		HashMap<String, Course> acadCourseInfo = null;
+		CourseHandler courseHandler = new CourseHandler();
 
         // get the academic data
         acadCourseInfo = courseHandler.getAcademicCourses(departmentCode);
@@ -101,10 +102,8 @@ public class CourseServlet extends HttpServlet {
         		System.out.println("course does not Exists");
         	}
          }
-           session.setAttribute("acadCourseInfo", acadCourseInfo); 
-           
+           session.setAttribute("acadCourseInfo", acadCourseInfo);
            response.sendRedirect("courses.jsp");
-	   
 	  }
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -152,7 +151,8 @@ public class CourseServlet extends HttpServlet {
 				paramBuilder.append(
 						"&courses["+courseCount +"][fullname]=" + URLEncoder.encode(course.getFullname(), "UTF-8")+
 						"&courses["+courseCount +"][shortname]="+ URLEncoder.encode(course.getShortname()+"("+semName+""+year+")", "UTF-8")+
-						"&courses["+courseCount +"][startdate]=" + URLEncoder.encode(currentTime+"", "UTF-8")
+						"&courses["+courseCount +"][startdate]=" + URLEncoder.encode(currentTime+"", "UTF-8") + 
+						"&courses["+courseCount +"][idnumber]=" + URLEncoder.encode(course.getFullname()+semester+""+year, "UTF-8")
 						);
 //				"&courses[0][categoryid]="+ URLEncoder.encode("2", "UTF-8");
 				
@@ -180,7 +180,7 @@ public class CourseServlet extends HttpServlet {
 		session.removeAttribute("currentYear");
 		session.removeAttribute("currentSemester");
 		
-		
+		response.sendRedirect("../admin/adminhome.jsp");
 	   }
         
 	}

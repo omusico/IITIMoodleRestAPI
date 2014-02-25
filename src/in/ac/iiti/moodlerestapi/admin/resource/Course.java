@@ -11,6 +11,7 @@ public class Course implements Serializable{
     private String semester; //1 0r 2
     private String year;     //1,2,3 or 4
     private Boolean publishedInMoodle;
+    private String idnumber; // hash to match same course offered to different students
     
     public Course(){
     	publishedInMoodle = false;

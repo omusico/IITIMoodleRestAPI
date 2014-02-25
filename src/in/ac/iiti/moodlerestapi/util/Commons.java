@@ -27,41 +27,6 @@ public class Commons {
 //	private static PropertyHandler propertyInstance= new PropertyHandler();
 	private static Properties propertyInstance = AppConfigProperty.getPropertyInstance(); 
 	
-	public static JsonObject callWebService(String httpMethod,String urlParams, String token,String functionName)
-			                                                                throws IOException,javax.ws.rs.ProcessingException{
-	    String moodleServerUrl = propertyInstance.getProperty("moodleServerUrl");//"http://localhost/testmoodle";
-	
-		if(urlParams==null){
-			urlParams="moodlewsrestformat=json";
-		}
-		else{
-	        urlParams = "moodlewsrestformat=json&"+urlParams;
-		}
-		JsonObject response=null;
-    
-	    WebTarget webTarget = ClientBuilder.newClient()
-              .target(moodleServerUrl)
-              .path("/webservice/rest/server.php?wstoken=" + token + "&wsfunction=" + functionName);
-              //.queryParam("wstoken", token)
-              //.queryParam("wsfunction",functionName )
-         //     .request();
-        
-	    if(httpMethod==null || httpMethod.equalsIgnoreCase("GET")){
-	    	 System.out.println("Sending get request");
-	    	Response response1 = webTarget.queryParam("moodlewsrestformat", "json").request(MediaType.APPLICATION_JSON).get();
-	    	System.out.println("response of get request is \n"+response1.toString());
-	    	
-	    }
-	    else if(httpMethod.equalsIgnoreCase("POST")){
-	    	System.out.println("Sending post request");
-	    	response = webTarget.request().post(Entity.entity(urlParams, MediaType.APPLICATION_FORM_URLENCODED_TYPE),JsonObject.class);
-	    }
-	    System.out.println("Request sent");
-	    System.out.println("response is "+ response.toString());
-	  
-	    return response;
-	}
-		
 	
     /**
      * 
@@ -117,9 +82,7 @@ public class Commons {
         return jsonResponse;
 	}
 
-	
-	
-  public static JsonArray getJsonArray(String httpMethod,String urlParams, String token,String functionName) throws IOException{
+    public static JsonArray getJsonArray(String httpMethod,String urlParams, String token,String functionName) throws IOException{
         
 		
 		String moodleServerUrl = propertyInstance.getProperty("moodleServerUrl");
@@ -164,5 +127,4 @@ public class Commons {
         return jsonResponse;
 	}
 
-	
 }

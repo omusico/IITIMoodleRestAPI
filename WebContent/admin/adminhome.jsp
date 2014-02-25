@@ -61,11 +61,12 @@
            <%@ include file="../default1.html" %>
            <%@ include file="../apidocs.html" %>
            <div id="admin-tab" class="g-unit">
+           
              <div class="courseCreation forms" >
               <form action="../admin/course" method="get"> 
               <fieldset>
                  <legend>1. Enter details for course list</legend>
-                <dl>
+                 <dl>
 	                <dt>
 	                    <label for="department">Department</label>
 	                </dt>
@@ -93,7 +94,7 @@
 	                <dd>
 	                      <select name="year" id="year" tabindex="2">
                              <%
-                             	for(int yearIndex = 2013;yearIndex <= 2099;yearIndex++) {
+                             	for(int yearIndex = 2013;yearIndex <= 2050;yearIndex++) {
                              %>
                               <option value="<%=yearIndex%>"><%=yearIndex%></option>
                              <%
@@ -102,19 +103,63 @@
                                          
                           </select>
 	                </dd>
-	                
                 </dl>
-                <p><input type="submit" value="Get Courses">
-                
+                <p>
+                  <input type="submit" value="Get Courses">
                 </p>
              </fieldset>
           </form>
          </div>
-            <div class="courseEnrollment">
-               <h4> 2. Course Enrollment </h4>
+             <div class="courseEnrollment forms">
+	             <form action="../admin/enrol" method="get"> 
+	              <fieldset>
+	                 <legend> Course Enrollment</legend>
+	                <dl>
+	                <dt>
+	                    <label for="department">Department</label>
+	                </dt>
+	                <dd>
+	                      <select name="department" id="department" tabindex="1">
+                              <option value="CS">Computer Science</option>
+                              <option value="EE">Electrical Engineering</option>
+                              <option value="ME">Mechanical Engineering</option>
+                          </select>
+	                </dd>
+	                
+	                <dt>
+	                    <label for="semester">Semester</label>
+	                </dt>
+	                <dd>
+	                      <select name="semester" id="semester" tabindex="2">
+                              <option value="1">Spring(Jan-May)</option>
+                              <option value="2">Autumn(July-Nov)</option>
+                          </select>
+	                </dd>
+	                
+	                <dt>
+	                    <label for="year">Year</label>
+	                </dt>
+	                <dd>
+	                      <select name="year" id="year" tabindex="2">
+                             <%
+                             	for(int yearIndex = 2013;yearIndex <= 2050;yearIndex++) {
+                             %>
+                              <option value="<%=yearIndex%>"><%=yearIndex%></option>
+                             <%
+                             }
+                             %>
+                                         
+                          </select>
+	                </dd>
+                </dl>
+                <p>
+                  <input type="submit" value="Enrol Students">
+                </p>
+	               </fieldset>
+	               
+	            </form>
             </div> 
-           
-           <div class="sysConfig forms" >   
+             <div class="sysConfig forms" >   
             <%
             	Properties propertyInstance = AppConfigProperty.getPropertyInstance();
             %>
@@ -172,7 +217,7 @@
 	                </dd>
 	                
 	                <dt>
-	                    <label for="moodleMySqlPassword" >Academic Server Password</label> 
+	                    <label for="moodleMySqlPassword" >Mysql Server Password</label> 
 	                </dt>
 	                <dd>
 	                     <input type="password" name="moodleMySqlPassword" value="<%=propertyInstance.getProperty("moodleMySqlPassword") %>" />
@@ -184,7 +229,14 @@
 	                <dd>
 	                     <input type="text" name="moodleDbName" value="<%=propertyInstance.getProperty("moodleDbName") %>" />
 	                </dd>
-	                           
+	                
+	                <dt>
+	                    <label for="adminUsername" >Admin Username</label> 
+	                </dt>
+	                <dd>
+	                     <input type="text" name="adminUsername" value="<%=propertyInstance.getProperty("adminUsername") %>" />
+	                </dd>
+	                          
 	            </dl>
 	              <p><input type="submit" value="Set Properties"></p>
              </fieldset>

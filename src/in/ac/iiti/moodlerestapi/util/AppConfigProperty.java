@@ -1,9 +1,6 @@
 package in.ac.iiti.moodlerestapi.util;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -38,7 +35,6 @@ public class AppConfigProperty{
 	 public static AppConfigProperty getAppConfigPropertyInstance(){
 		 return configInstance;
 	 } 
-	 
 	 public void updateProperties(HashMap<String,String> properties){
 		 Iterator<?> iterator = properties.entrySet().iterator();
 			while (iterator.hasNext()) {

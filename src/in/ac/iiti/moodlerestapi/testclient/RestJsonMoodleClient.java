@@ -50,39 +50,64 @@ public class RestJsonMoodleClient {
         }
 
         /// PARAMETERS - NEED TO BE CHANGED IF YOU CALL A DIFFERENT FUNCTION
-        String functionName = "core_course_create_courses";//"core_user_create_users";
+        String functionName ="core_user_create_users";// "core_course_create_courses";//
         String urlParameters =
-        		"&courses[0][fullname]=" + URLEncoder.encode("TestCourse FullName", "UTF-8")+
-				"&courses[0][shortname]="+ URLEncoder.encode("TS2344", "UTF-8")+
-				"&courses[0][categoryid]="+ URLEncoder.encode("2", "UTF-8");
         
-//		        "courses[0][maxbytes]= "+ URLEncoder.encode("testusername3", "UTF-8");
-       /* "users[0][username]=" + URLEncoder.encode("testusername3", "UTF-8") +
-        "&users[0][password]=" + URLEncoder.encode("Testpassword@3", "UTF-8") +
-        "&users[0][firstname]=" + URLEncoder.encode("testfirstname1", "UTF-8") +
-        "&users[0][lastname]=" + URLEncoder.encode("testlastname1", "UTF-8") +
-        "&users[0][email]=" + URLEncoder.encode("testemail1@moodle.com", "UTF-8") +
-        "&users[0][auth]=" + URLEncoder.encode("manual", "UTF-8") +
-        "&users[0][idnumber]=" + URLEncoder.encode("testidnumber1", "UTF-8") +
-        "&users[0][lang]=" + URLEncoder.encode("en", "UTF-8") +
-        "&users[0][theme]=" + URLEncoder.encode("standard", "UTF-8") +
-        "&users[0][timezone]=" + URLEncoder.encode("-12.5", "UTF-8") +
-        "&users[0][mailformat]=" + URLEncoder.encode("0", "UTF-8") +
-        "&users[0][description]=" + URLEncoder.encode("Hello World!", "UTF-8") +
-        "&users[0][city]=" + URLEncoder.encode("testcity1", "UTF-8") +
-        "&users[0][country]=" + URLEncoder.encode("au", "UTF-8") +
-        "&users[0][preferences][0][type]=" + URLEncoder.encode("preference1", "UTF-8") +
-        "&users[0][preferences][0][value]=" + URLEncoder.encode("preferencevalue1", "UTF-8") +
-        "&users[0][preferences][1][type]=" + URLEncoder.encode("preference2", "UTF-8") +
-        "&users[0][preferences][1][value]=" + URLEncoder.encode("preferencevalue2", "UTF-8") +
-        "&users[1][username]=" + URLEncoder.encode("testusername4", "UTF-8") +
-        "&users[1][password]=" + URLEncoder.encode("Testpassword@4", "UTF-8") +
+        "users[0][username]=" + URLEncoder.encode(" phd12120101", "UTF-8") +
+        "&users[0][password]=" + URLEncoder.encode("Test@123", "UTF-8") +
+        "&users[0][firstname]=" + URLEncoder.encode("testfirstname2", "UTF-8") +
+        "&users[0][lastname]=" + URLEncoder.encode("usr", "UTF-8") +
+        "&users[0][email]=" + URLEncoder.encode("test1@moodle.com", "UTF-8") +
+        "&users[0][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8") + 
+        
+        "&users[1][username]=" + URLEncoder.encode(" phd1301201005", "UTF-8") +
+        "&users[1][password]=" + URLEncoder.encode("Test@123", "UTF-8") +
         "&users[1][firstname]=" + URLEncoder.encode("testfirstname2", "UTF-8") +
-        "&users[1][lastname]=" + URLEncoder.encode("testlastname2", "UTF-8") +
-        "&users[1][email]=" + URLEncoder.encode("testemail2@moodle.com", "UTF-8") +
-        "&users[1][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8");
-*/
-        /// REST CALL
+        "&users[1][lastname]=" + URLEncoder.encode("usr", "UTF-8") +
+        "&users[1][email]=" + URLEncoder.encode("test2@moodle.com", "UTF-8") +
+        "&users[1][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8") + 
+
+        "&users[2][username]=" + URLEncoder.encode("cs1100108", "UTF-8") +
+        "&users[2][password]=" + URLEncoder.encode("Test@123", "UTF-8") +
+        "&users[2][firstname]=" + URLEncoder.encode("testfirstname2", "UTF-8") +
+        "&users[2][lastname]=" + URLEncoder.encode("usr", "UTF-8") +
+        "&users[2][email]=" + URLEncoder.encode("test3@moodle.com", "UTF-8") +
+        "&users[2][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8") + 
+        
+        "&users[3][username]=" + URLEncoder.encode(" cse1200101", "UTF-8") +
+        "&users[3][password]=" + URLEncoder.encode("Test@123", "UTF-8") +
+        "&users[3][firstname]=" + URLEncoder.encode("testfirstname2", "UTF-8") +
+        "&users[3][lastname]=" + URLEncoder.encode("usr", "UTF-8") +
+        "&users[3][email]=" + URLEncoder.encode("test4@moodle.com", "UTF-8") +
+        "&users[3][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8") + 
+        
+        "&users[4][username]=" + URLEncoder.encode("cse130001001", "UTF-8") +
+        "&users[4][password]=" + URLEncoder.encode("Test@123", "UTF-8") +
+        "&users[4][firstname]=" + URLEncoder.encode("testfirstname2", "UTF-8") +
+        "&users[4][lastname]=" + URLEncoder.encode("usr", "UTF-8") +
+        "&users[4][email]=" + URLEncoder.encode("test5@moodle.com", "UTF-8") +
+        "&users[4][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8") +  
+        
+        "&users[5][username]=" + URLEncoder.encode("pushkar", "UTF-8") +
+        "&users[5][password]=" + URLEncoder.encode("Test@123", "UTF-8") +
+        "&users[5][firstname]=" + URLEncoder.encode("testfirstname2", "UTF-8") +
+        "&users[5][lastname]=" + URLEncoder.encode("usr", "UTF-8") +
+        "&users[5][email]=" + URLEncoder.encode("test6@moodle.com", "UTF-8") +
+        "&users[5][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8") + 
+       
+        "&users[6][username]=" + URLEncoder.encode("cseTest", "UTF-8") +
+        "&users[6][password]=" + URLEncoder.encode("Test@123", "UTF-8") +
+        "&users[6][firstname]=" + URLEncoder.encode("testfirstname2", "UTF-8") +
+        "&users[6][lastname]=" + URLEncoder.encode("usr", "UTF-8") +
+        "&users[6][email]=" + URLEncoder.encode("test7@moodle.com", "UTF-8") +
+        "&users[6][timezone]=" + URLEncoder.encode("Pacific/Port_Moresby", "UTF-8");
+        
+        /*		"&courses[0][fullname]=" + URLEncoder.encode("TestCourse FullName", "UTF-8")+
+		"&courses[0][shortname]="+ URLEncoder.encode("TS2344", "UTF-8")+
+		"&courses[0][categoryid]="+ URLEncoder.encode("2", "UTF-8");
+        "courses[0][maxbytes]= "+ URLEncoder.encode("testusername3", "UTF-8");
+       */
+/// REST CALL
 
         // Send request
         String serverurl = domainName + "/webservice/rest/server.php" + "?wstoken=" + token + "&wsfunction=" + functionName;

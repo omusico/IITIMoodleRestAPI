@@ -23,7 +23,8 @@ public class MySqlDBConnector {
             System.out.println("Could not load driver class "+e);
         }
         try {
-              con= DriverManager.getConnection(url+dbName,userName,password);   
+              con= DriverManager.getConnection(url+dbName,userName,password);
+                
         } catch (SQLException e) {
             System.out.println("Could not get connection "+e);
         }

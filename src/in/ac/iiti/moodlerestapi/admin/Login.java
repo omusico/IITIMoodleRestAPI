@@ -1,9 +1,13 @@
 package in.ac.iiti.moodlerestapi.admin;
 
+import in.ac.iiti.moodlerestapi.util.AppConfigProperty;
 import in.ac.iiti.moodlerestapi.util.Commons;
+import in.ac.iiti.moodlerestapi.util.CourseHandler;
+import in.ac.iiti.moodlerestapi.util.MoodleDbManager;
 import in.ac.iiti.moodlerestapi.LoginService;
 import java.io.IOException;
 import java.net.ConnectException;
+import java.util.Properties;
 
 import javax.json.JsonObject;
 import javax.json.JsonString;
@@ -18,14 +22,21 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/adminlogin")
 public class Login extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-    
+	private static Properties  propertyInstance = AppConfigProperty.getPropertyInstance();
+	private static String adminUsername = propertyInstance.getProperty("adminUsername");
+	
     public Login() {
         super();
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
+	    	
+		//remove later
+		System.out.println("updated rows = "+ new CourseHandler().migrateAcadRecords(2014, 1));
+		
         try{
 			//get the username and password
 			String username = request.getParameter("username");
@@ -49,8 +60,6 @@ public class Login extends HttpServlet {
 	        	return;
 	        }
 	        
-	        	
-	        
 	        System.out.println("token is "+token);
 	        //check if username is that of the admin by calling core_webservice_get_site_info function
 	        
@@ -68,9 +77,9 @@ public class Login extends HttpServlet {
 	        	//TODO redirect to guest page
 	        }
 	        // if true then set a session attribute for them and store the token
-	        String name = jsonObject.getString("firstname");
+	        String name = jsonObject.getString("username");
 	        
-	        if(name!=null && name.equals("admin")){ // TODO
+	        if(name!=null && name.equals(adminUsername)){ // TODO
 	        	session.setAttribute("role","admin");
 	        	session.setAttribute("token", token);
 	        	System.out.println("Admin verified ...................");
@@ -90,5 +99,6 @@ public class Login extends HttpServlet {
         	session.setAttribute("connectErrorCode",1); //moodle server connect exception
         	response.sendRedirect("errors/connectionerror.jsp");
         }
+        
 	}
 }
