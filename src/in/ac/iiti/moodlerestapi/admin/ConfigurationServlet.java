@@ -1,6 +1,8 @@
 package in.ac.iiti.moodlerestapi.admin;
 
 import in.ac.iiti.moodlerestapi.util.AppConfigProperty;
+import in.ac.iiti.moodlerestapi.util.AcadDbManager;
+import in.ac.iiti.moodlerestapi.util.MoodleDbManager;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,7 +31,7 @@ public class ConfigurationServlet extends HttpServlet {
 		String role = (String) session.getAttribute("role");
 		if( request.getServletContext().getInitParameter("firstLoad").equals("0") && 
 				(role==null || !role.equalsIgnoreCase("admin"))){
-			return; //TODO
+			return; 
 		}
 		
 		HashMap<String,String> configMap = new HashMap<>();
@@ -53,18 +55,35 @@ public class ConfigurationServlet extends HttpServlet {
 		if(moodleServerUrl!=null && !moodleServerUrl.equals("")){
 			configMap.put("moodleServerUrl", moodleServerUrl);
 		}
-		System.out.println("Config: Getting properties\n");
+		////
+		String moodleMySqlUrl = request.getParameter("moodleMySqlUrl");
+		if(moodleMySqlUrl!=null && !moodleMySqlUrl.equals("")){
+			configMap.put("moodleMySqlUrl", moodleMySqlUrl);
+		}
+		String moodleMySqlUsername = request.getParameter("moodleMySqlUsername");
+		if(moodleMySqlUsername!=null && !moodleMySqlUsername.equals("")){
+			configMap.put("moodleMySqlUsername", moodleMySqlUsername);
+		}
+		String moodleMySqlPassword = request.getParameter("moodleMySqlPassword");
+		if(moodleMySqlPassword!=null && !moodleMySqlPassword.equals("")){
+			configMap.put("moodleMySqlPassword", moodleMySqlPassword);
+		}
+		String moodleDbName = request.getParameter("moodleDbName");
+		if(moodleDbName!=null && !moodleDbName.equals("")){
+			configMap.put("moodleDbName", moodleDbName);
+		}
+		String adminUsername = request.getParameter("adminUsername");
+		if(adminUsername!=null && !adminUsername.equals("")){
+			configMap.put("adminUsername", adminUsername);
+		}
+		
 		Properties propertyInstance = AppConfigProperty.getPropertyInstance();
 		AppConfigProperty.getAppConfigPropertyInstance().updateProperties(configMap);
-		System.out.println("Config: Redirect properties are \n"+propertyInstance.toString());
 		
 		//tell that the servlet is not loaded the first time.
 		request.getServletContext().setAttribute("firstLoad", "false");
 		
-		System.out.println("Config: Sending Redirect to guesthome");
-		
+	    //redirect to home page 	
 		response.sendRedirect("./");
-		
-		System.out.println("Config: Redirect sent to guesthome");
 	}
 }

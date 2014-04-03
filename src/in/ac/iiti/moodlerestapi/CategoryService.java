@@ -13,6 +13,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
@@ -22,17 +23,16 @@ public class CategoryService
 {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  public JsonArray getCategories(@CookieParam("wstoken")String wstoken) throws IOException
+  public JsonArray getCategories(@QueryParam("wstoken")String wstoken) throws IOException
   {
 	   
        JsonArray jsonArray=null;
        
        try{
            jsonArray= Commons.getJsonArray("GET",null, wstoken,"core_course_get_categories");
-           System.out.println("courses are \n "+ jsonArray.toString());
-        } 
+          } 
         catch(javax.ws.rs.ProcessingException connectException){
-       	System.out.println("javax.ws.rs.ProcessingException thrown in Common.callWebservice");
+       	System.out.println("log javax.ws.rs.ProcessingException thrown in Common.callWebservice");
        	//TODO redirect to guest page
        }
        

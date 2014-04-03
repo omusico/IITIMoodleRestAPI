@@ -2,8 +2,9 @@ package in.ac.iiti.moodlerestapi.admin;
 
 import in.ac.iiti.moodlerestapi.util.AppConfigProperty;
 import in.ac.iiti.moodlerestapi.util.Commons;
-import in.ac.iiti.moodlerestapi.util.CourseHandler;
+import in.ac.iiti.moodlerestapi.util.AcadDbManager;
 import in.ac.iiti.moodlerestapi.util.MoodleDbManager;
+import in.ac.iiti.moodlerestapi.LoginInternalService;
 import in.ac.iiti.moodlerestapi.LoginService;
 import java.io.IOException;
 import java.net.ConnectException;
@@ -34,15 +35,12 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 	    	
-		//remove later
-		System.out.println("updated rows = "+ new CourseHandler().migrateAcadRecords(2014, 1));
-		
-        try{
+		try{
 			//get the username and password
 			String username = request.getParameter("username");
 	        String password = request.getParameter("password");
 	    		    	
-	        JsonObject tokenJson = new LoginService().getToken(username,password);
+	        JsonObject tokenJson = new LoginInternalService().getToken(username,password);
 	        String token = null;
 	        
 	        try{

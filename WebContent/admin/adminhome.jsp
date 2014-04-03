@@ -1,6 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="java.util.Properties"%>
 <%@ page import="in.ac.iiti.moodlerestapi.util.AppConfigProperty" %>
+  <%
+     String courseCreated =(String)session.getAttribute("courseCreated");
+     if(courseCreated!=null){
+    	 session.removeAttribute("courseCreated");
+     }
+     String enrolSuccess =(String)session.getAttribute("enrolSuccess");
+     if(enrolSuccess!=null){
+    	 session.removeAttribute("enrolSuccess");
+     }
+  %>
 <html>
   <head>
     <title>IITI: Moodle Rest API</title>
@@ -34,7 +44,7 @@
 		   	        <div style="clear:both;"></div>
 		          </div>
 		      </div>
-		            <div id="menubar" class="nav">
+		<div id="menubar" class="nav">
 			      <ul>
 				  <li>
 				      <a id="home" class="tab" href="#home">Home</a>  
@@ -65,7 +75,7 @@
              <div class="courseCreation forms" >
               <form action="../admin/course" method="get"> 
               <fieldset>
-                 <legend>1. Enter details for course list</legend>
+                 <legend>1.Available Courses for creation</legend>
                  <dl>
 	                <dt>
 	                    <label for="department">Department</label>
@@ -106,14 +116,19 @@
                 </dl>
                 <p>
                   <input type="submit" value="Get Courses">
+                  <%
+                     if(courseCreated !=null){
+                  %>
+                     <%= courseCreated%>
+                  <% }%>
                 </p>
              </fieldset>
           </form>
          </div>
              <div class="courseEnrollment forms">
-	             <form action="../admin/enrol" method="get"> 
+	             <form action="../admin/enrol" method="post"> 
 	              <fieldset>
-	                 <legend> Course Enrollment</legend>
+	                 <legend>2. Course Enrollment</legend>
 	                <dl>
 	                <dt>
 	                    <label for="department">Department</label>
@@ -154,6 +169,11 @@
                 </dl>
                 <p>
                   <input type="submit" value="Enrol Students">
+                  <%
+                     if(enrolSuccess !=null){
+                  %>
+                     <%= enrolSuccess%>
+                  <% }%>
                 </p>
 	               </fieldset>
 	               

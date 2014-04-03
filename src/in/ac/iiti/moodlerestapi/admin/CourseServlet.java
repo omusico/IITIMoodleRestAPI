@@ -3,7 +3,7 @@ package in.ac.iiti.moodlerestapi.admin;
 import in.ac.iiti.moodlerestapi.CategoryService;
 import in.ac.iiti.moodlerestapi.CourseService;
 import in.ac.iiti.moodlerestapi.admin.resource.Course;
-import in.ac.iiti.moodlerestapi.util.CourseHandler;
+import in.ac.iiti.moodlerestapi.util.AcadDbManager;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -76,10 +76,10 @@ public class CourseServlet extends HttpServlet {
         
                  
 		HashMap<String, Course> acadCourseInfo = null;
-		CourseHandler courseHandler = new CourseHandler();
+		AcadDbManager acadDbManager = new AcadDbManager();
 
         // get the academic data
-        acadCourseInfo = courseHandler.getAcademicCourses(departmentCode);
+        acadCourseInfo = acadDbManager.getAcademicCourses(departmentCode);
         //get the list of moodle courses 
         JsonArray moodleCourses = new CourseService().getCourses((String)session.getAttribute("token"));
         System.out.println("<<<<<<<<<<<<<-----------------Iter Moodle Course-------------------->>>>>>>>>>>>");
@@ -175,6 +175,12 @@ public class CourseServlet extends HttpServlet {
 		
 		new CourseService().createCourses(urlParams, (String)session.getAttribute("token"));
 		
+		if(courseCount>0){
+            session.setAttribute("courseCreated", "Success !! "+courseCount+ " courses created");
+        }
+        else{
+        	session.setAttribute("courseCreated", "No Course Created");
+        }
 		// remove unnecessary attributes
 		session.removeAttribute("acadCourseInfo");
 		session.removeAttribute("currentYear");

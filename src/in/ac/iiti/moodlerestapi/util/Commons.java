@@ -9,13 +9,23 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.ConnectException;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Properties;
 
 import javax.ws.rs.client.Invocation.Builder;
 import javax.json.Json;
 import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonException;
+import javax.json.JsonNumber;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.json.JsonString;
+import javax.json.JsonValue;
+import javax.json.JsonValue.ValueType;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
@@ -120,8 +130,14 @@ public class Commons {
         }
         
         JsonReader jsonReader =Json.createReader(new StringReader(responseBuilder.toString()));
-        JsonArray jsonResponse = jsonReader.readArray();
-        System.out.println("response is :\n"+jsonResponse.toString());
+        JsonArray jsonResponse = null;
+        try{
+          jsonResponse = jsonReader.readArray();
+        }catch(JsonException e){
+        	JsonReader jsonReader1 =Json.createReader(new StringReader(responseBuilder.toString()));
+        	JsonObject jsonObject = jsonReader1.readObject();
+        	jsonResponse = Json.createArrayBuilder().add(jsonObject).build();
+        }
         rd.close();
         
         return jsonResponse;

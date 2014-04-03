@@ -16,10 +16,10 @@ import java.util.Calendar;
 import java.util.Properties;
 
 public class MoodleDbManager {
-	private static Connection con=null;
-	private static PreparedStatement pstmt=null;
-	private static ResultSet res=null;
-	private static Properties  emailInstance = AppConfigProperty.getEmailInstance(); 
+	private  Connection con=null;
+	private  PreparedStatement pstmt=null;
+	private  ResultSet res=null;
+	private  Properties  emailInstance = AppConfigProperty.getEmailInstance(); 
 
 	/**
 	 * This function updates the idnumber field in mdl_user table to the students roll number
@@ -39,7 +39,7 @@ public class MoodleDbManager {
 	 *               else, do nothing
 	 *  @return: number of rows updated
 	 */
-	 public static int updateUserRollNumbers(){
+	 public synchronized  int updateUserRollNumbers(){
 		 
 		 int rowsUpdated = 0; 
 		 
@@ -72,7 +72,6 @@ public class MoodleDbManager {
 	                     }
 	                 }
                  }
-	             
 			 }catch(SQLException sqle){
 		          sqle.printStackTrace();
 		     }finally{
@@ -85,46 +84,25 @@ public class MoodleDbManager {
 		return rowsUpdated;	
 	}
 	 
-	public synchronized int enrolAllStudents(String departmentCode, int semester, int year, String wstoken) throws IOException{
-		int enrolCount=0;
+	 public synchronized int enrolAllStudents(String departmentCode, int semester, int year, String wstoken) throws IOException{
+		int count=0;
 		
-		Calendar calendar = Calendar.getInstance();
-        DateFormat dfm = new SimpleDateFormat("yyyyMMddHHmm");
-        int currentTime = (int)(calendar.getTimeInMillis()/1000); 
-        int unixSemStartTimeStamp=0;
-        
-        
-        String timeStart=null;
-        if(semester == 1){
-        	timeStart = year+"01010000";
-        }
-        else if(semester == 2){
-        	timeStart = year+"07010000";
-        }
-        try {
-			unixSemStartTimeStamp =  (int)(dfm.parse(timeStart).getTime()/1000);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  
-        
-        if(MySqlDBConnector.isClosed(con)){
+		if(MySqlDBConnector.isClosed(con)){
 			 con = MySqlDBConnector.getConnection();
 	     }
 		 if(!MySqlDBConnector.isClosed(con)) {
 			 try{
-				 String deptRegexp = ".*["+departmentCode.toUpperCase()+"].*";
-				 pstmt = con.	prepareStatement("select mdl_user.id as userid,mdl_course.id as courseid, rollno "+ 
+				 String courseSuffix = ".*"+semester+""+year;
+				 pstmt = con.	prepareStatement("select mdl_user.id as userid,mdl_course.id as courseid "+ 
                                                  "from acad_enrol, mdl_course,mdl_user "+
                                                  " where acad_enrol.idnumber = mdl_course.idnumber " +
                                                     "and  acad_enrol.coursecode REGEXP '.*["+departmentCode+"].*'" +
-                                                    "and  mdl_course.startdate >  ? and mdl_user.idnumber = acad_enrol.rollno");
+                                                    "and  mdl_course.idnumber REGEXP '.*"+semester+""+year+"$' " +
+                                                    "and mdl_user.idnumber = acad_enrol.rollno");
 				 
-		         pstmt.setInt(1, unixSemStartTimeStamp);
 		         
 		         res = pstmt.executeQuery();
 		         StringBuilder paramBuilder = new StringBuilder("");
-		         int count = 0;
 		         while(res.next()){
 		        	 System.out.println(res.getString("userid")+" -- "+ res.getString("courseid"));
 						paramBuilder.append(
@@ -145,6 +123,6 @@ public class MoodleDbManager {
 	             MySqlDBConnector.closeDBConnection(con);	 
 			 }
 	   }
-	   return enrolCount;
+	   return count;
    } // end of function
 }

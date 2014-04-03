@@ -54,10 +54,10 @@ public class LoginTest {
 	 
     public static void main(String args[]) throws IOException, SQLException, ClassNotFoundException{
 //        JsonObject response = new LoginService().getToken("admin", "Root123#");
-    	  JsonObject response = new LoginService().getToken("harshit", "1413mshr2028");
-        System.out.println("Token is "+ response.toString());
+//    	  JsonObject response = new LoginService().getToken("harshit", "1413mshr2028");
+//        System.out.println("Token is "+ response.toString());
 //    	new CourseService().getCourses("c58818df1be7c557e5552a4142903eb8").toString();
-//    	new CourseService().getCourseContents("2","c58818df1be7c557e5552a4142903eb8");
+    	new CourseService().getCourseContents(2,"c58818df1be7c557e5552a4142903eb8");
 //    	new CourseService().getCourseParticipants("2","c58818df1be7c557e5552a4142903eb8");
 //    	new CategoryService().getCategories("c58818df1be7c557e5552a4142903eb8");
 //    	new UserService().getUserDetailbyId(("c58818df1be7c557e5552a4142903eb8"),2);
