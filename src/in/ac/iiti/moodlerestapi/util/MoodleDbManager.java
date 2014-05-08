@@ -58,7 +58,7 @@ public class MoodleDbManager {
 	            	 username = res.getString("username");
 	            	 if(username.matches("[a-z]{2,3}[0-9]{7,10}")){
 	            		 roll = username.replaceAll("[a-z]{2,3}","");
-	            		 System.out.println("ROll is "+ roll);
+	            		 //System.out.println("ROll is "+ roll);
 	            		 res.updateString("idnumber", roll);
 	            		 res.updateRow();
 	            		 rowsUpdated++;
@@ -104,7 +104,7 @@ public class MoodleDbManager {
 		         res = pstmt.executeQuery();
 		         StringBuilder paramBuilder = new StringBuilder("");
 		         while(res.next()){
-		        	 System.out.println(res.getString("userid")+" -- "+ res.getString("courseid"));
+		        	 //System.out.println(res.getString("userid")+" -- "+ res.getString("courseid"));
 						paramBuilder.append(
 								"&enrolments["+count +"][roleid]=" + URLEncoder.encode(5+"", "UTF-8")+
 								"&enrolments["+count +"][userid]="+ URLEncoder.encode(res.getString("userid"), "UTF-8")+

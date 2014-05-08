@@ -11,7 +11,7 @@ package in.ac.iiti.moodlerestapi;
 	  @GET
 	  public Response getMessage()
 	  {
-	    String outMsg = "It works";
+	    String outMsg = "API is reachable";
 	    return Response.status(200).entity(outMsg).build();
 	  }
 	}

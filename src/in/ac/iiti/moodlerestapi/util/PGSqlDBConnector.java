@@ -26,12 +26,12 @@ public class PGSqlDBConnector {
         try {
           Class.forName(driver);	
         } catch(ClassNotFoundException e) {
-            System.out.println("Could not load driver class "+e);
+            System.out.println("log Could not load driver class "+e);
         }
         try {
               con= DriverManager.getConnection(url+dbName,userName,password);   
         } catch (SQLException e) {
-            System.out.println("Could not get connection "+e);
+            System.out.println("log Could not get connection "+e);
         }
         return con;
     }
@@ -44,7 +44,7 @@ public class PGSqlDBConnector {
                 con = null;
             }
             catch (SQLException e) {
-                System.out.println("Could not close Connection "+e);
+                System.out.println("log Could not close Connection "+e);
             }
         }
     }
@@ -56,7 +56,7 @@ public class PGSqlDBConnector {
                 stmt = null;
             }
             catch (SQLException e) {
-                System.out.println("Could not close Statement "+e);
+                System.out.println("log Could not close Statement "+e);
             }
         }
     }
@@ -68,7 +68,7 @@ public class PGSqlDBConnector {
                 pstmt = null;
             }
             catch (SQLException e) {
-                System.out.println("Could not close Prepared Statement "+e);
+                System.out.println("log Could not close Prepared Statement "+e);
             }
         }
     }
@@ -80,7 +80,7 @@ public class PGSqlDBConnector {
                 res = null;
             }
             catch (SQLException e) {
-                System.out.println("Could not close ResultSet "+e);
+                System.out.println("log Could not close ResultSet "+e);
             }
         }
     }

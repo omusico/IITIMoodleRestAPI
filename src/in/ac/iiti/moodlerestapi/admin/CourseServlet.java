@@ -82,24 +82,17 @@ public class CourseServlet extends HttpServlet {
         acadCourseInfo = acadDbManager.getAcademicCourses(departmentCode);
         //get the list of moodle courses 
         JsonArray moodleCourses = new CourseService().getCourses((String)session.getAttribute("token"));
-        System.out.println("<<<<<<<<<<<<<-----------------Iter Moodle Course-------------------->>>>>>>>>>>>");
-
+      
         for(JsonValue jsonValue: moodleCourses){
         	String moodleCourseName =  ((JsonObject)jsonValue).getString("fullname");
-        	System.out.println("courseName = "+ moodleCourseName);
         	if(acadCourseInfo.containsKey(moodleCourseName)){
-        		System.out.println("course Exists");
         		int startDate =  ((JsonObject)jsonValue).getInt("startdate");
-        		System.out.println("moodleCourseStart Date = "+startDate);
-        		System.out.println("semStartDate = "+unixSemStartTimeStamp);
-        		System.out.println("current Timestamp = "+ currentTime);
-        		if(unixSemStartTimeStamp <= startDate){ //if the course has been published in moodle for given semester
+        		  if(unixSemStartTimeStamp <= startDate){ //if the course has been published in moodle for given semester
         			Course existingCourse = acadCourseInfo.get(moodleCourseName);
         			existingCourse.setPublishedInMoodle(true);
         		}
         		}
         	else{
-        		System.out.println("course does not Exists");
         	}
          }
            session.setAttribute("acadCourseInfo", acadCourseInfo);
@@ -108,7 +101,6 @@ public class CourseServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("in dopost method of courses");
 		HttpSession session = request.getSession();
 		HashMap<String,Integer> categoryMap = new HashMap<String,Integer>();
 		//TODO catch exception
@@ -124,11 +116,8 @@ public class CourseServlet extends HttpServlet {
 			return; //TODO
 		}
 	    String courseNames[] = request.getParameterValues("selectedCourses");
-	    System.out.println("selected courses are :\n"+courseNames.toString());
-	    for(int i=0;i<courseNames.length;i++){
-	    	System.out.println("------------"+ courseNames[i]);
-	    }
-		HashMap<String, Course> acadCourseInfo = (HashMap<String, Course>) session.getAttribute("acadCourseInfo");
+	    
+	    HashMap<String, Course> acadCourseInfo = (HashMap<String, Course>) session.getAttribute("acadCourseInfo");
 		
 		 Calendar calendar = Calendar.getInstance();
 		
@@ -159,15 +148,13 @@ public class CourseServlet extends HttpServlet {
 				if(course.getYear()==null){
 					int categoryId = categoryMap.get("Others");
 					paramBuilder.append("&courses["+courseCount +"][categoryid]="+ URLEncoder.encode(categoryId+"", "UTF-8"));
-					System.out.println("added course -nn---"+ course.getFullname()+ "\n CourseCount = "+courseCount);
-				}
+			    }
 				else{
 					String yr = course.getYear();
 					String sem = course.getSemester();
 					int categoryId = categoryMap.get("B.Tech_Year-"+course.getYear()+"_Sem-"+course.getSemester());
 					paramBuilder.append("&courses["+courseCount +"][categoryid]="+ URLEncoder.encode(categoryId+"", "UTF-8"));
-					System.out.println("added course -nn---"+ course.getFullname() + "\n CourseCount = "+courseCount);
-				}
+			    }
 				courseCount++;
 			}
 		}

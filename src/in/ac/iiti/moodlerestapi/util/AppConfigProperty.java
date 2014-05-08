@@ -19,10 +19,10 @@ public class AppConfigProperty{
 	        propertyInstance.load(this.getClass().getClassLoader().getResourceAsStream("config.properties"));
 	        emailInstance = new Properties();
 	        emailInstance.load(this.getClass().getClassLoader().getResourceAsStream("email.properties"));
-	        System.out.println("in appConfig constructor");
+	        
 	    } catch (IOException e) {
 	        e.printStackTrace();
-	        System.out.println("file could not be loaded");
+	        System.out.println("log file could not be loaded");
 	    }
 	 }
 	 
@@ -40,8 +40,8 @@ public class AppConfigProperty{
 			while (iterator.hasNext()) {
 				Map.Entry mapEntry = (Map.Entry) iterator.next();
 				propertyInstance.setProperty((String)mapEntry.getKey(), (String)mapEntry.getValue()); //TODO if this updates
-				System.out.println("\nupdated "+ (String)mapEntry.getKey()+" = "+ (String)mapEntry.getValue());
+				
 		    }
-	       System.out.println("new val "+ propertyInstance.getProperty("moodleServerUrl"));
+	       
      }
 }

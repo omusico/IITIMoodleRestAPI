@@ -22,8 +22,8 @@
     <param-name>firstLoad</param-name>
     <param-value>1</param-value>
   </context-param>
-  
-  <security-constraint>
+  <!-- 
+    <security-constraint>
      <web-resource-collection>
        <web-resource-name>IITIMoodleRestAPI</web-resource-name>
        <url-pattern>/*</url-pattern>
@@ -32,5 +32,5 @@
         <transport-guarantee>CONFIDENTIAL</transport-guarantee>
      </user-data-constraint>
   </security-constraint>
-  
+  -->
 </web-app>

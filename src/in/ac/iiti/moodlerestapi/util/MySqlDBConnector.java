@@ -20,13 +20,13 @@ public class MySqlDBConnector {
         try {
           Class.forName("com.mysql.jdbc.Driver");	
         } catch(ClassNotFoundException e) {
-            System.out.println("Could not load driver class "+e);
+            System.out.println("log Could not load driver class "+e);
         }
         try {
               con= DriverManager.getConnection(url+dbName,userName,password);
                 
         } catch (SQLException e) {
-            System.out.println("Could not get connection "+e);
+            System.out.println("log Could not get connection "+e);
         }
         return con;
     }
@@ -39,7 +39,7 @@ public class MySqlDBConnector {
                 con = null;
             }
             catch (SQLException e) {
-                System.out.println("Could not close Connection "+e);
+                System.out.println("log Could not close Connection "+e);
             }
         }
     }
@@ -51,7 +51,7 @@ public class MySqlDBConnector {
                 stmt = null;
             }
             catch (SQLException e) {
-                System.out.println("Could not close Statement "+e);
+                System.out.println("log Could not close Statement "+e);
             }
         }
     }
@@ -63,7 +63,7 @@ public class MySqlDBConnector {
                 pstmt = null;
             }
             catch (SQLException e) {
-                System.out.println("Could not close Prepared Statement "+e);
+                System.out.println("log Could not close Prepared Statement "+e);
             }
         }
     }
@@ -75,7 +75,7 @@ public class MySqlDBConnector {
                 res = null;
             }
             catch (SQLException e) {
-                System.out.println("Could not close ResultSet "+e);
+                System.out.println("log Could not close ResultSet "+e);
             }
         }
     }

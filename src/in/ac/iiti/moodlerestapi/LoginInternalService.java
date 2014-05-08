@@ -25,7 +25,6 @@ public class LoginInternalService
   throws java.net.ConnectException{
 	   
        String moodleServerUrl = propertyInstance.getProperty("moodleServerUrl");
-       System.out.println("moodleServerUtl is : "+ moodleServerUrl);
        String moodleWebServiceShortname = "alanturing"; //TODO put it at a central location
        
        

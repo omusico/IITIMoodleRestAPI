@@ -83,10 +83,10 @@ public class Commons {
             responseBuilder.append(line);
             responseBuilder.append('\r');
         }
-        System.out.println("init response is :\n"+ responseBuilder.toString());        
+        //System.out.println("init response is :\n"+ responseBuilder.toString());        
         JsonReader jsonReader =Json.createReader(new StringReader(responseBuilder.toString()));
         JsonObject jsonResponse = jsonReader.readObject();
-        System.out.println("response is :\n"+jsonResponse.toString());
+        //System.out.println("response is :\n"+jsonResponse.toString());
         rd.close();
         
         return jsonResponse;

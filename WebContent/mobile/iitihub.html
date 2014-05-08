@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>Custom responsive grids - jQuery Mobile Demos</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    rel="stylesheet">
+        <link rel="stylesheet" href="jquery.mobile-1.4.2.min.css" />
+        <script src="jquery-1.9.1.min.js"></script>
+        <script src="jquery.mobile-1.4.2.min.js"></script>
+        <script src="main.js"></script>
+    <style>
+    /* Basic styles */
+        .iitihubgrid .ui-body {
+            border-color: #ddd;
+        }
+
+        /* Collapsing borders */
+        .iitihubgrid > div + div .ui-body {
+            border-top-width: 0;
+        }
+        
+</style>
+
+</head>
+
+<body>
+    <div class="home" data-role="page">
+        <div data-role="header">
+                 <h1>IITI Hub</h1>
+                 <a href="#about" data-icon="info" data-iconpos="notext" class="ui-btn-right" data-rel="dialog" data-transition="pop">About</a>    		</div>
+    	       
+        <div class="ui-content">
+            <!-- view source utilty wrapper -->
+
+                <div class="iitihubgrid ui-grid-a ui-responsive">
+                    <div class="ui-block-a">
+                        <a href="#" class="ui-body ui-body-d ui-btn ui-shadow ui-corner-all">My Profile</a>
+                    </div>
+
+                    <div class="ui-block-b" >
+                        <a href="#" class="ui-body ui-body-d ui-btn ui-shadow ui-corner-all">Courses</a>
+                    </div>
+
+                    <div class="ui-block-a">
+                        <a href="#" class="ui-body ui-body-d ui-btn ui-shadow ui-corner-all">Messages</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a href="#" class="ui-body ui-body-d ui-btn ui-shadow ui-corner-all">Contacts</a>
+                    </div>
+                </div><!-- /iitihubgrid -->
+        </div><!-- /content -->
+    </div><!-- /page -->
+
+
+  <!--About us page -->
+     	<div id="about" data-role="page">
+    		<div data-role="header" data-add-back-btn="true">
+                 <h1>About Us</h1>
+            </div>
+    		<article data-role="content">
+    			<p>Harshit Aggarwal <br/> I love programming</p>
+    		</article>
+    	</div>
+    
+</body>
+</html>
